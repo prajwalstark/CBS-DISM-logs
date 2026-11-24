@@ -1,0 +1,49 @@
+2024-03-12 10:15:31, Info                  DISM   PID=6720 TID=6724 Scratch directory set to 'C:\Users\admin\AppData\Local\Temp\'. - CDISMManager::put_ScratchDir
+2024-03-12 10:15:31, Info                  DISM   PID=6720 TID=6724 DismCore.dll version: 10.0.19041.3636 - CDISMManager::FinalConstruct
+2024-03-12 10:15:31, Info                  DISM   DISM.EXE: <----- Starting Dism.exe session ----->
+2024-03-12 10:15:31, Info                  DISM   DISM.EXE: Host machine information: OS Version=10.0.19045, Running architecture=amd64, Number of processors=8
+2024-03-12 10:15:31, Info                  DISM   DISM.EXE: Dism.exe version: 10.0.19041.3636
+2024-03-12 10:15:31, Info                  DISM   DISM.EXE: Executing command line: dism  /online /cleanup-image /checkhealth
+2024-03-12 10:15:31, Info                  DISM   DISM Provider Store: PID=6720 TID=6724 Connecting to the provider located at C:\Windows\System32\Dism\CbsProvider.dll. - CDISMProviderStore::Internal_LoadProvider
+2024-03-12 10:15:34, Info                  DISM   DISM Package Manager: PID=6720 TID=6724 CBS session options=0x40100! - CDISMPackageManager::Internal_Finalize
+2024-03-12 10:15:36, Info                  DISM   DISM Package Manager: PID=6720 TID=6724 The component store is repairable. - CPackageManagerCLIHandler::ExecuteCmdLine
+2024-03-12 10:15:36, Info                  DISM   DISM.EXE: Image session has been closed. Reboot required=no.
+2024-03-12 10:15:36, Info                  DISM   DISM.EXE: <----- Ending Dism.exe session ----->
+2024-03-12 10:16:02, Info                  DISM   PID=6804 TID=6808 Scratch directory set to 'C:\Users\admin\AppData\Local\Temp\'. - CDISMManager::put_ScratchDir
+2024-03-12 10:16:02, Info                  DISM   PID=6804 TID=6808 DismCore.dll version: 10.0.19041.3636 - CDISMManager::FinalConstruct
+2024-03-12 10:16:02, Info                  DISM   DISM.EXE: <----- Starting Dism.exe session ----->
+2024-03-12 10:16:02, Info                  DISM   DISM.EXE: Host machine information: OS Version=10.0.19045, Running architecture=amd64, Number of processors=8
+2024-03-12 10:16:02, Info                  DISM   DISM.EXE: Dism.exe version: 10.0.19041.3636
+2024-03-12 10:16:02, Info                  DISM   DISM.EXE: Executing command line: dism  /online /cleanup-image /scanhealth
+2024-03-12 10:16:02, Info                  DISM   DISM Provider Store: PID=6804 TID=6808 Connecting to the provider located at C:\Windows\System32\Dism\CbsProvider.dll. - CDISMProviderStore::Internal_LoadProvider
+2024-03-12 10:16:05, Info                  DISM   DISM Package Manager: PID=6804 TID=6808 Initiating component store scan - CDISMPackageManager::ScanHealth
+2024-03-12 10:19:22, Warning               DISM   DISM Package Manager: PID=6804 TID=6808 Component store corruption detected in 3 component(s). - CDISMPackageManager::ScanHealth
+2024-03-12 10:19:22, Info                  DISM   DISM Package Manager: PID=6804 TID=6808 The component store is repairable. - CPackageManagerCLIHandler::ExecuteCmdLine
+2024-03-12 10:19:23, Info                  DISM   DISM.EXE: Image session has been closed. Reboot required=no.
+2024-03-12 10:19:23, Info                  DISM   DISM.EXE: <----- Ending Dism.exe session ----->
+2024-03-12 10:20:02, Info                  DISM   PID=7012 TID=7016 Scratch directory set to 'C:\Users\admin\AppData\Local\Temp\'. - CDISMManager::put_ScratchDir
+2024-03-12 10:20:02, Info                  DISM   PID=7012 TID=7016 DismCore.dll version: 10.0.19041.3636 - CDISMManager::FinalConstruct
+2024-03-12 10:20:02, Info                  DISM   DISM.EXE: <----- Starting Dism.exe session ----->
+2024-03-12 10:20:02, Info                  DISM   DISM.EXE: Host machine information: OS Version=10.0.19045, Running architecture=amd64, Number of processors=8
+2024-03-12 10:20:02, Info                  DISM   DISM.EXE: Dism.exe version: 10.0.19041.3636
+2024-03-12 10:20:02, Info                  DISM   DISM.EXE: Executing command line: dism  /online /cleanup-image /restorehealth
+2024-03-12 10:20:02, Info                  DISM   DISM Provider Store: PID=7012 TID=7016 Connecting to the provider located at C:\Windows\System32\Dism\CbsProvider.dll. - CDISMProviderStore::Internal_LoadProvider
+2024-03-12 10:20:05, Info                  DISM   DISM Package Manager: PID=7012 TID=7016 Initiating Windows Update repair - CDISMPackageManager::RestoreHealth
+2024-03-12 10:26:41, Warning               DISM   DISM Package Manager: PID=7012 TID=7016 Failed to download repair payload from Windows Update. - CDISMPackageManager::RestoreHealth(hr:0x800f0906)
+2024-03-12 10:28:12, Error                 DISM   DISM Package Manager: PID=7012 TID=7016 Failed finalizing changes. - CDISMPackageManager::Internal_Finalize(hr:0x800f081f)
+2024-03-12 10:28:12, Error                 DISM   DISM Package Manager: PID=7012 TID=7016 The source files could not be found. Use the "Source" option to specify the location of the files that are required to restore the feature. - CPackageManagerCLIHandler::ExecuteCmdLine(hr:0x800f081f)
+2024-03-12 10:28:12, Error                 DISM   DISM.EXE: DISM Package Manager processed the command line but failed. HRESULT=800F081F
+2024-03-12 10:28:13, Info                  DISM   DISM.EXE: Image session has been closed. Reboot required=no.
+2024-03-12 10:28:13, Info                  DISM   DISM.EXE: <----- Ending Dism.exe session ----->
+2024-03-12 10:31:40, Info                  DISM   PID=7290 TID=7294 Scratch directory set to 'C:\Users\admin\AppData\Local\Temp\'. - CDISMManager::put_ScratchDir
+2024-03-12 10:31:40, Info                  DISM   PID=7290 TID=7294 DismCore.dll version: 10.0.19041.3636 - CDISMManager::FinalConstruct
+2024-03-12 10:31:40, Info                  DISM   DISM.EXE: <----- Starting Dism.exe session ----->
+2024-03-12 10:31:40, Info                  DISM   DISM.EXE: Host machine information: OS Version=10.0.19045, Running architecture=amd64, Number of processors=8
+2024-03-12 10:31:40, Info                  DISM   DISM.EXE: Dism.exe version: 10.0.19041.3636
+2024-03-12 10:31:40, Info                  DISM   DISM.EXE: Executing command line: dism  /online /cleanup-image /analyzecomponentstore
+2024-03-12 10:31:40, Info                  DISM   DISM Provider Store: PID=7290 TID=7294 Connecting to the provider located at C:\Windows\System32\Dism\CbsProvider.dll. - CDISMProviderStore::Internal_LoadProvider
+2024-03-12 10:32:55, Info                  DISM   DISM Package Manager: PID=7290 TID=7294 Windows Explorer Reported Size of Component Store : 9.84 GB - CPackageManagerCLIHandler::ExecuteCmdLine
+2024-03-12 10:32:55, Info                  DISM   DISM Package Manager: PID=7290 TID=7294 Number of Reclaimable Packages : 4 - CPackageManagerCLIHandler::ExecuteCmdLine
+2024-03-12 10:32:55, Info                  DISM   DISM Package Manager: PID=7290 TID=7294 Component Store Cleanup Recommended : Yes - CPackageManagerCLIHandler::ExecuteCmdLine
+2024-03-12 10:32:56, Info                  DISM   DISM.EXE: Image session has been closed. Reboot required=no.
+2024-03-12 10:32:56, Info                  DISM   DISM.EXE: <----- Ending Dism.exe session ----->

@@ -1,0 +1,81 @@
+2024-03-12 09:14:02, Info                  CBS    TI: --- Initializing Trusted Installer ---
+2024-03-12 09:14:02, Info                  CBS    Starting TrustedInstaller initialization.
+2024-03-12 09:14:02, Info                  CBS    Lock: New lock added: CCbsPublicSessionClassFactory, level: 30, total lock:4
+2024-03-12 09:14:02, Info                  CBS    Ending TrustedInstaller initialization.
+2024-03-12 09:14:02, Info                  CBS    Starting the TrustedInstaller main loop.
+2024-03-12 09:14:02, Info                  CBS    TrustedInstaller service starts successfully.
+2024-03-12 09:14:03, Info                  CBS    Loaded Servicing Stack v10.0.19041.3990 with Core: C:\Windows\winsxs\amd64_microsoft-windows-servicingstack_31bf3856ad364e35_10.0.19041.3990_none_7e2e5f8a3c1d4b21\cbscore.dll
+2024-03-12 09:14:03, Info                  CSI    00000001@2024/3/12:09:14:03.412 WcpInitialize: wcp.dll version 0.0.0.6 (bfe9c2a7d8)
+2024-03-12 09:14:05, Info                  CBS    Session: 31092845_1873420193 initialized by client WindowsUpdateAgent, external staging directory: (null), external registry directory: (null)
+2024-03-12 09:14:11, Info                  CBS    Exec: Processing started.  Client: WindowsUpdateAgent, Session: 31092845_1873420193, Package: Package_for_RollupFix~31bf3856ad364e35~amd64~~19041.4170.1.10, Rename: False, ForceReboot: False
+2024-03-12 09:14:11, Info                  CBS    Package: Package_for_RollupFix~31bf3856ad364e35~amd64~~19041.4170.1.10, current: Staged, original: Absent, target: Installed
+2024-03-12 09:14:12, Info                  CBS    Failed to get session package state for package: Package_for_KB5034441~31bf3856ad364e35~amd64~~19041.3920.1.4 [HRESULT = 0x80070002 - ERROR_FILE_NOT_FOUND]
+2024-03-12 09:14:12, Info                  CBS    Failed to get session package state for package: Package_for_KB5034441~31bf3856ad364e35~amd64~~19041.3920.1.4 [HRESULT = 0x80070002 - ERROR_FILE_NOT_FOUND]
+2024-03-12 09:16:40, Info                  CSI    0000004e Creating NT transaction (seq 1), objectname [6]"(null)"
+2024-03-12 09:18:27, Info                  CSI    000001a2 Hashes for file member [l:12]"advapi32.dll" do not match.
+2024-03-12 09:18:27, Error                 CSI    000001a3 (F) STATUS_SXS_COMPONENT_STORE_CORRUPT #2218934# from Windows::ServicingAPI::CCSITransaction::ICSITransaction_PinDeployment(Flags = 0, a = Microsoft-Windows-Advapi32, version 10.0.19041.4170, arch amd64, nonSxS, pkt {l:8 b:31bf3856ad364e35}, cb = (null), s = (null), rid = 'Package_for_RollupFix~31bf3856ad364e35~amd64~~19041.4170.1.10.0a2f', rah = '2', manpath = (null), catpath = (null), ed = 0, disp = 0)[gle=0x80073712]
+2024-03-12 09:18:27, Error                 CBS    Failed to pin deployment while resolving Update: Package_for_RollupFix~31bf3856ad364e35~amd64~~19041.4170.1.10.0a2f from file: (null) [HRESULT = 0x80073712 - ERROR_SXS_COMPONENT_STORE_CORRUPT]
+2024-03-12 09:18:28, Info                  CBS    Failed to bulk stage deployment manifest and pin deployment for package:Package_for_RollupFix~31bf3856ad364e35~amd64~~19041.4170.1.10 [HRESULT = 0x80073712 - ERROR_SXS_COMPONENT_STORE_CORRUPT]
+2024-03-12 09:18:28, Info                  CBS    CSI Store Corruption detected while staging package.
+2024-03-12 09:18:29, Error                 CBS    Failed to execute execution package: Package_for_RollupFix~31bf3856ad364e35~amd64~~19041.4170.1.10 [HRESULT = 0x800f0922 - CBS_E_INSTALLERS_FAILED]
+2024-03-12 09:18:29, Info                  CBS    Failed to process single phase execution. [HRESULT = 0x800f0922 - CBS_E_INSTALLERS_FAILED]
+2024-03-12 09:18:30, Info                  CBS    Exec: Processing complete.  Session: 31092845_1873420193, Package: Package_for_RollupFix~31bf3856ad364e35~amd64~~19041.4170.1.10 [HRESULT = 0x800f0922 - CBS_E_INSTALLERS_FAILED]
+2024-03-12 09:18:31, Info                  CBS    Session: 31092845_1873420193 finalized. Reboot required: no [HRESULT = 0x800f0922 - CBS_E_INSTALLERS_FAILED]
+2024-03-12 09:18:31, Info                  CBS    Perf: Doq: Exec: Processing complete with failures.
+2024-03-12 09:23:31, Info                  CBS    Ending TrustedInstaller finalization.
+2024-03-12 10:02:14, Info                  CBS    Starting TrustedInstaller initialization.
+2024-03-12 10:02:14, Info                  CBS    Loaded Servicing Stack v10.0.19041.3990 with Core: C:\Windows\winsxs\amd64_microsoft-windows-servicingstack_31bf3856ad364e35_10.0.19041.3990_none_7e2e5f8a3c1d4b21\cbscore.dll
+2024-03-12 10:02:15, Info                  CBS    Ending TrustedInstaller initialization.
+2024-03-12 10:02:16, Info                  CSI    00000005 [SR] Verifying 100 components
+2024-03-12 10:02:16, Info                  CSI    00000006 [SR] Beginning Verify and Repair transaction
+2024-03-12 10:02:21, Info                  CSI    00000008 [SR] Verify complete
+2024-03-12 10:02:22, Info                  CSI    00000009 [SR] Verifying 100 components
+2024-03-12 10:02:22, Info                  CSI    0000000a [SR] Beginning Verify and Repair transaction
+2024-03-12 10:03:47, Info                  CSI    0000002c Hashes for file member [l:12]"cryptbase.dll" do not match.
+2024-03-12 10:03:47, Info                  CSI    0000002d [SR] Repairing corrupted file \??\C:\Windows\SysWOW64\cryptbase.dll from store
+2024-03-12 10:03:51, Info                  CSI    00000031 Hashes for file member [l:12]"advapi32.dll" do not match.
+2024-03-12 10:03:51, Info                  CSI    00000032 [SR] Cannot repair member file [l:12]"advapi32.dll" of Microsoft-Windows-Advapi32, version 10.0.19041.4170, arch amd64, nonSxS, pkt {l:8 b:31bf3856ad364e35} in the store, hash mismatch
+2024-03-12 10:03:52, Info                  CSI    00000034 [SR] This component was referenced by [l:79]"Package_4211_for_KB5035845~31bf3856ad364e35~amd64~~19041.4170.1.10.5035845-7864_neutral"
+2024-03-12 10:03:53, Info                  CSI    00000036 [SR] Could not reproject corrupted file \??\C:\Windows\System32\\advapi32.dll; source file in store is also corrupted
+2024-03-12 10:04:10, Info                  CSI    0000003a [SR] Verify complete
+2024-03-12 10:04:11, Info                  CSI    0000003b [SR] Repairing 1 components
+2024-03-12 10:04:11, Info                  CSI    0000003c [SR] Beginning Verify and Repair transaction
+2024-03-12 10:04:12, Info                  CSI    0000003e [SR] Repaired file \SystemRoot\WinSxS\wow64_microsoft-windows-cryptbase_31bf3856ad364e35_10.0.19041.3636_none_5bd42c1a3f0e1b97\cryptbase.dll by copying from backup
+2024-03-12 10:04:12, Info                  CSI    0000003f [SR] Repair complete
+2024-03-12 10:04:12, Info                  CSI    00000040 [SR] Committing transaction
+2024-03-12 10:04:13, Info                  CBS    Ending TrustedInstaller finalization.
+2024-03-12 10:20:09, Info                  CBS    Starting TrustedInstaller initialization.
+2024-03-12 10:20:09, Info                  CBS    Ending TrustedInstaller initialization.
+2024-03-12 10:20:10, Info                  CBS    Session: 31092912_2234017718 initialized by client DISM Package Manager Provider, external staging directory: (null), external registry directory: (null)
+2024-03-12 10:20:11, Info                  CBS    Checking System Update Readiness.
+2024-03-12 10:26:40, Info                  CBS    Failed to download payload for component amd64_microsoft-windows-advapi32_31bf3856ad364e35_10.0.19041.4170_none_d3a2c1f0e8b14c11 from Windows Update [HRESULT = 0x800f0906 - CBS_E_DOWNLOAD_FAILURE]
+2024-03-12 10:28:09, Info                  CBS    Repr: CBS Store check completes
+(p)	CSI Payload Corrupt	(n)	amd64_microsoft-windows-advapi32_31bf3856ad364e35_10.0.19041.4170_none_d3a2c1f0e8b14c11\advapi32.dll
+Repair failed: Missing replacement payload.
+(p)	CSI Payload Corrupt	(n)	wow64_microsoft-windows-cryptbase_31bf3856ad364e35_10.0.19041.3636_none_5bd42c1a3f0e1b97\cryptbase.dll
+(Fix)	CSI Payload Corrupt		CSI File Replaced	File: cryptbase.dll, source: \SystemRoot\WinSxS\Backup\wow64_microsoft-windows-cryptbase_31bf3856ad364e35_10.0.19041.3636_none_5bd42c1a3f0e1b97_cryptbase.dll_8f2a1c3d
+(p)	CSI Payload Corrupt	(n)	amd64_microsoft-windows-sechost_31bf3856ad364e35_10.0.19041.4170_none_0c8e1b2a7f3d5e66\sechost.dll
+Repair failed: Missing replacement payload.
+
+Summary:
+Operation: Detect and Repair 
+Operation result: 0x800f081f
+Last Successful Step: Entire operation completes.
+Total Detected Corruption:	3
+	CBS Manifest Corruption:	0
+	CBS Metadata Corruption:	0
+	CSI Manifest Corruption:	0
+	CSI Metadata Corruption:	0
+	CSI Payload Corruption:	3
+Total Repaired Corruption:	1
+	CBS Manifest Repaired:	0
+	CSI Manifest Repaired:	0
+	CSI Payload Repaired:	1
+	CSI Store Metadata refreshed:	True
+
+2024-03-12 10:28:10, Info                  CBS    Count of times corruption detected: 2
+2024-03-12 10:28:10, Info                  CBS    Seconds between initial corruption detections: -1
+2024-03-12 10:28:10, Info                  CBS    Reboot mark set
+2024-03-12 10:28:11, Info                  CBS    Session: 31092912_2234017718 finalized. Reboot required: yes [HRESULT = 0x800f081f - CBS_E_SOURCE_MISSING]
+2024-03-12 10:28:12, Error                 CBS    Failed to run Detect and Repair. [HRESULT = 0x800f081f - CBS_E_SOURCE_MISSING]
+2024-03-12 10:33:12, Info                  CBS    Ending TrustedInstaller finalization.
