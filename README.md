@@ -20,6 +20,10 @@ npm test             # engine unit tests (vitest)
 npm run e2e          # headless Chromium end-to-end suite (needs a build first)
 ```
 
+## Deployment
+
+Pushing to `main` runs `.github/workflows/deploy-pages.yml`: tests, a build with `VITE_BASE=/<repo>/`, and a deploy to GitHub Pages. In the repo's Settings → Pages, **Source** must be set to **GitHub Actions**.
+
 ## Features
 
 | Page | What it does |
