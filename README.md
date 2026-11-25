@@ -10,6 +10,8 @@ An immersive, local-first analyser for Windows servicing logs (`CBS.log`, `dism.
 
 ![Error Explorer: 3D correlation view linking CBS and DISM findings, with a selected finding's evidence, likely causes and repair commands, using the labelled sample logs](docs/screenshot-error-explorer.jpg)
 
+![Repair Center: 3D six-stage repair pipeline with evidence-derived stage status, the dependency-ordered repair plan and corrupt items, using the labelled sample logs](docs/screenshot-repair-center.jpg)
+
 Logs are parsed **in your browser** inside a Web Worker. Nothing is uploaded.
 
 Every number, colour and 3D object in the interface comes from parsed log data. When no
