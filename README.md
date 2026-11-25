@@ -4,6 +4,8 @@ An immersive, local-first analyser for Windows servicing logs (`CBS.log`, `dism.
 
 **Live site: https://prajwalstark.github.io/CBS-DISM-logs/**
 
+![Overview: 3D system core with subsystem health nodes, overall health score and top findings, using the labelled sample logs](docs/screenshot.jpg)
+
 Logs are parsed **in your browser** inside a Web Worker. Nothing is uploaded.
 
 Every number, colour and 3D object in the interface comes from parsed log data. When no
