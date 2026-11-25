@@ -8,41 +8,31 @@ import { useApp, useQuality, useReducedMotion } from '@/store/app';
 export interface SceneProps { quality: Quality; reduced: boolean }
 
 /**
- * Drives rendering on demand: every display frame while the canvas is visible
- * (a frame cap made motion stutter and fooled PerformanceMonitor into
- * resizing the canvas), nothing when off-screen or the tab is hidden, and only
- * on interaction under reduced motion.
+ * Reduced-motion mode renders on demand only: redraw when the user interacts
+ * (and once when shown), so nothing animates on its own.
  */
-function FrameDriver({ visible, reduced, activeRef }: { visible: boolean; reduced: boolean; activeRef: React.MutableRefObject<number> }) {
+function DemandDriver({ visible }: { visible: boolean }) {
   const invalidate = useThree((s) => s.invalidate);
   const gl = useThree((s) => s.gl);
   useEffect(() => {
     const el = gl.domElement;
-    const bump = () => { activeRef.current = performance.now(); invalidate(); };
-    el.addEventListener('pointermove', bump);
-    el.addEventListener('pointerdown', bump);
-    el.addEventListener('wheel', bump, { passive: true });
-    el.addEventListener('touchmove', bump, { passive: true });
-    return () => {
-      el.removeEventListener('pointermove', bump);
-      el.removeEventListener('pointerdown', bump);
-      el.removeEventListener('wheel', bump);
-      el.removeEventListener('touchmove', bump);
-    };
-  }, [gl, invalidate, activeRef]);
-  useEffect(() => {
-    if (!visible) return;
-    invalidate();
-    if (reduced) return;
-    let raf = 0;
-    const loop = () => {
-      raf = requestAnimationFrame(loop);
-      if (!document.hidden) invalidate();
-    };
-    raf = requestAnimationFrame(loop);
-    return () => cancelAnimationFrame(raf);
-  }, [visible, reduced, invalidate, activeRef]);
+    const bump = () => invalidate();
+    const events = ['pointermove', 'pointerdown', 'wheel', 'touchmove'] as const;
+    events.forEach((e) => el.addEventListener(e, bump, { passive: true }));
+    return () => events.forEach((e) => el.removeEventListener(e, bump));
+  }, [gl, invalidate]);
+  useEffect(() => { if (visible) invalidate(); }, [visible, invalidate]);
   return null;
+}
+
+function usePageVisible(): boolean {
+  const [v, setV] = useState(() => !document.hidden);
+  useEffect(() => {
+    const on = () => setV(!document.hidden);
+    document.addEventListener('visibilitychange', on);
+    return () => document.removeEventListener('visibilitychange', on);
+  }, []);
+  return v;
 }
 
 class GLBoundary extends Component<{ fallback: ReactNode; children: ReactNode }, { failed: boolean }> {
@@ -70,7 +60,11 @@ export function Canvas3D({ children, fallback, camera = { position: [0, 4, 14], 
   const [visible, setVisible] = useState(true);
   const [dpr, setDpr] = useState(quality === 'high' ? 1.75 : quality === 'medium' ? 1.25 : 1);
   const [lost, setLost] = useState(false);
-  const activeRef = useRef(performance.now());
+  const pageVisible = usePageVisible();
+  // R3F drives its own frame loop while the scene is on screen (no external
+  // invalidate loop, which landed every render one tick late); it stops entirely
+  // when the canvas is scrolled away or the tab is hidden.
+  const frameloop = reduced ? 'demand' : visible && pageVisible ? 'always' : 'never';
 
   useEffect(() => setDpr(quality === 'high' ? 1.75 : quality === 'medium' ? 1.25 : 1), [quality]);
   useEffect(() => {
@@ -87,7 +81,7 @@ export function Canvas3D({ children, fallback, camera = { position: [0, 4, 14], 
     <div ref={wrap} className={className} role="application" aria-label={label}>
       <GLBoundary fallback={fallback}>
         <Canvas
-          frameloop="demand"
+          frameloop={frameloop}
           onPointerMissed={onPointerMissed}
           dpr={[1, dpr]}
           camera={{ position: camera.position, fov: camera.fov ?? 42, near: 0.1, far: 200 }}
@@ -101,7 +95,7 @@ export function Canvas3D({ children, fallback, camera = { position: [0, 4, 14], 
         >
           {/* Only ever step resolution down, and settle at 1x if it keeps flip-flopping, so the canvas never oscillates in size. */}
           <PerformanceMonitor flipflops={2} onDecline={() => setDpr((d) => Math.max(1, d - 0.25))} onFallback={() => setDpr(1)} />
-          <FrameDriver visible={visible} reduced={reduced} activeRef={activeRef} />
+          {reduced && <DemandDriver visible={visible && pageVisible} />}
           {children({ quality, reduced })}
         </Canvas>
       </GLBoundary>

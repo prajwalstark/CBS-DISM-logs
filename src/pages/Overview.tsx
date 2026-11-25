@@ -56,7 +56,7 @@ export default function Overview() {
           </Scene3D>
           {/* HUD overlay */}
           <div className="pointer-events-none absolute left-4 top-4 flex items-center gap-3 md:left-5 md:top-5">
-            <div className="rounded-full bg-void/50 p-1 backdrop-blur-md">
+            <div className="rounded-full bg-void/80 p-1">
               <HealthRing score={analysis?.overall.score ?? 0} status={analysis?.overall.status ?? 'no-data'} size={compact ? 64 : 88} stroke={compact ? 6 : 8} sublabel="health" label="Overall system health" />
             </div>
             <div className="hidden sm:block">
@@ -75,8 +75,8 @@ export default function Overview() {
               return (
                 <button key={m} onClick={() => select(selected === m ? null : m)} onMouseEnter={() => setHovered(m)} onMouseLeave={() => setHovered(null)}
                   onFocus={() => setHovered(m)} onBlur={() => setHovered(null)} aria-pressed={selected === m}
-                  className={cn('flex shrink-0 items-center gap-2 rounded-full border px-3 py-1.5 text-xs backdrop-blur-md transition-all duration-base',
-                    selected === m ? 'border-accent/60 bg-accent/15 text-ink' : 'border-white/10 bg-void/60 text-ink-2 hover:border-white/25 hover:text-ink')}>
+                  className={cn('flex shrink-0 items-center gap-2 rounded-full border px-3 py-1.5 text-xs transition-colors duration-base',
+                    selected === m ? 'border-accent/60 bg-[#0b2a3d] text-ink' : 'border-white/10 bg-void/90 text-ink-2 hover:border-white/25 hover:text-ink')}>
                   <StatusDot status={h?.status ?? 'no-data'} pulse={false} />
                   {MODULE_META[m].label}
                   {h && h.status !== 'no-data' && <span className="mono text-ink-3">{h.score}</span>}

@@ -111,7 +111,7 @@ function Gate({ stage, index, pos, selected, onClick }: { stage: RepairStage; in
         <mesh visible={false}><sphereGeometry args={[1, 8, 8]} /></mesh>
       </group>
       <Label3D position={[pos.x, pos.y - 1.45, pos.z]} k={13}
-        className={`whitespace-nowrap rounded-lg border px-2.5 py-1 text-center backdrop-blur ${selected || hover ? 'border-accent/60 bg-void-2/90' : 'border-white/10 bg-void-2/70'}`}
+        className={`whitespace-nowrap rounded-lg border px-2.5 py-1 text-center ${selected || hover ? 'border-accent/60 bg-void-2/90' : 'border-white/10 bg-void-2/90'}`}
         lines={[
           { text: `STAGE ${index + 1}`, className: 'text-[10px] text-ink-3' },
           { text: stage.label, className: 'font-display text-[13px] font-semibold text-ink' },

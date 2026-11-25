@@ -185,7 +185,7 @@ function ModuleLabel({ pos, i, node }: { pos: Float32Array; i: number; node: Gra
 }
 function NodeLabel({ pos, i, node }: { pos: Float32Array; i: number; node: GraphNode }) {
   return (
-    <Label3D track={(v) => v.set(pos[i * 3], pos[i * 3 + 1] + 0.6, pos[i * 3 + 2])} k={13} className="max-w-[260px] rounded-lg border border-white/15 bg-void-2/90 px-2.5 py-1 text-center backdrop-blur"
+    <Label3D track={(v) => v.set(pos[i * 3], pos[i * 3 + 1] + 0.6, pos[i * 3 + 2])} k={13} className="max-w-[260px] rounded-lg border border-white/15 bg-void-2/90 px-2.5 py-1 text-center"
       lines={[{ text: node.label, className: 'truncate text-[12px] font-semibold text-ink' }, { text: `${node.kind} · ${node.sub}`, className: 'mono text-[10px]', color: node.color }]} />
   );
 }

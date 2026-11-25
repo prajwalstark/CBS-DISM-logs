@@ -60,7 +60,7 @@ export default function Settings() {
         <Row id="save" title="Save analyses to history" desc="Store each analysis in IndexedDB after parsing.">{sw('autoSave', 'save')}</Row>
       </Glass>
       <Glass className="grid min-w-0 grid-cols-1 gap-4 p-5 sm:grid-cols-2">
-        <div className="flex gap-3"><Monitor className="size-5 text-accent" /><div><div className="font-medium">Graphics</div><div className="text-xs text-ink-3">WebGL: {webgl ? <Badge tone="ok">available</Badge> : <Badge tone="critical">unavailable</Badge>} · {navigator.hardwareConcurrency || '?'} logical cores</div></div></div>
+        <div className="flex gap-3"><Monitor className="size-5 text-accent" /><div><div className="font-medium">Graphics</div><div className="text-xs text-ink-3">WebGL: {webgl ? <Badge tone="ok">available</Badge> : <Badge tone="critical">unavailable</Badge>} · {navigator.hardwareConcurrency || '?'} logical cores · build <span className="mono">{(import.meta.env.VITE_COMMIT || 'dev').slice(0, 7)}</span></div></div></div>
         <div className="flex gap-3"><Cpu className="size-5 text-accent-2" /><div><div className="font-medium">Knowledge base</div><div className="text-xs text-ink-3">{knownHresultCount()} documented HRESULTs · {Object.keys(PATTERNS).length} log patterns · unknown codes decoded by facility</div></div></div>
       </Glass>
     </div>

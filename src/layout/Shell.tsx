@@ -9,6 +9,8 @@ import { cn } from '@/lib/utils';
 import { useApp } from '@/store/app';
 import { NAV } from './nav';
 
+const BUILD = (import.meta.env.VITE_COMMIT || 'dev').slice(0, 7);
+
 function NavItem({ id, label, icon: Icon, active, collapsed, onClick, index }: { id: RouteId; label: string; icon: (typeof NAV)[number]['icon']; active: boolean; collapsed?: boolean; onClick?: () => void; index: number }) {
   const link = (
     <a
@@ -87,6 +89,7 @@ export function Shell({ children }: { children: ReactNode }) {
           </nav>
           <div className="hidden rounded-xl border border-white/[0.06] bg-white/[0.02] p-3 text-[11px] text-ink-3 lg:block">
             <kbd className="mono rounded bg-white/10 px-1">Alt</kbd> + <kbd className="mono rounded bg-white/10 px-1">1–9</kbd> to switch views
+            <div className="mono mt-1.5 text-[10px] text-ink-3/70" title="Deployed commit">build {BUILD}</div>
           </div>
         </aside>
       </LayoutGroup>

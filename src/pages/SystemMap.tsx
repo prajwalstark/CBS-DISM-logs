@@ -41,7 +41,7 @@ export default function SystemMap() {
           onPointerMissed={() => setSel(null)} fallback={<SvgSystemMap analysis={a} selected={null} onSelect={(m) => m && setSel(`m:${m}`)} />}>
           {(p) => <SystemMapGraph {...p} analysis={a} selected={sel} onSelect={setSel} />}
         </Scene3D>
-        <div className="pointer-events-none absolute left-4 top-4 space-y-1 rounded-xl bg-void/60 p-3 text-[11px] text-ink-2 backdrop-blur-md">
+        <div className="pointer-events-none absolute left-4 top-4 space-y-1 rounded-xl bg-void/85 p-3 text-[11px] text-ink-2">
           {[['module', 'Subsystem', statusColor.healthy], ['finding', 'Finding', severityColor.critical], ['component', 'Corrupt item', severityColor.warning], ['package', 'Update package', '#4FA3FF']].map(([k, l, c]) => (
             <div key={k} className="flex items-center gap-2"><span className="size-2.5 rounded-full" style={{ background: c }} />{l} <span className="mono text-ink-3">{counts[k] || 0}</span></div>
           ))}
@@ -50,7 +50,7 @@ export default function SystemMap() {
         <AnimatePresence>
           {node && (
             <motion.aside initial={{ opacity: 0, x: 20 }} animate={{ opacity: 1, x: 0 }} exit={{ opacity: 0, x: 20 }}
-              className="absolute bottom-4 right-4 top-auto w-[min(340px,calc(100%-2rem))] glass-strong glass-edge p-4 md:top-4 md:bottom-auto" aria-live="polite">
+              className="absolute bottom-4 right-4 top-auto w-[min(340px,calc(100%-2rem))] rounded-[var(--radius)] border border-white/10 bg-[#0b1224]/95 p-4 shadow-glass md:top-4 md:bottom-auto" aria-live="polite">
               <div className="flex items-start gap-2">
                 <span className="mt-1.5 size-2.5 shrink-0 rounded-full" style={{ background: node.color }} />
                 <div className="min-w-0 flex-1">

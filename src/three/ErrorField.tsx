@@ -74,7 +74,7 @@ export default function ErrorField({ analysis, findings, selected, onSelect, qua
         const p = placed.find((x) => x.f.id === id);
         if (!p) return null;
         return (
-          <Label3D key={id} position={[p.pos.x, p.pos.y + p.h / 2 + 0.7, p.pos.z]} k={11} className="max-w-[240px] rounded-lg border border-white/15 bg-void-2/90 px-2.5 py-1.5 text-center backdrop-blur"
+          <Label3D key={id} position={[p.pos.x, p.pos.y + p.h / 2 + 0.7, p.pos.z]} k={11} className="max-w-[240px] rounded-lg border border-white/15 bg-void-2/90 px-2.5 py-1.5 text-center"
             lines={[
               { text: p.f.title, className: 'text-[12px] font-semibold text-ink' },
               { text: `${p.f.code} · ×${p.f.occurrences} · ${p.f.sources[0].toUpperCase()}`, className: 'mono text-[10px]', color: severityColor[p.f.severity] },

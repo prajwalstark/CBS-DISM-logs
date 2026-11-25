@@ -67,9 +67,10 @@ export function Label3D({ position, track, lines, className = '', align = 'cente
     if (v.z > 1 || v.z < -1) { el.style.display = 'none'; last.current = 'hidden'; return; }
     const x = (v.x * 0.5 + 0.5) * size.width + offset[0];
     const y = (-v.y * 0.5 + 0.5) * size.height + offset[1];
-    const s = Math.min(1.15, Math.max(0.55, k / Math.max(0.001, dist)));
+    // Quantise scale so text isn't re-rasterised at a new size every frame (shimmer).
+    const s = Math.round(Math.min(1.15, Math.max(0.55, k / Math.max(0.001, dist))) * 50) / 50;
     const tx = align === 'center' ? '-50%' : align === 'right' ? '-100%' : '0%';
-    const t = `translate3d(${x.toFixed(1)}px,${y.toFixed(1)}px,0) translate(${tx},-50%) scale(${s.toFixed(3)})`;
+    const t = `translate3d(${x.toFixed(1)}px,${y.toFixed(1)}px,0) translate(${tx},-50%) scale(${s.toFixed(2)})`;
     if (t !== last.current) {
       el.style.display = '';
       el.style.transformOrigin = align === 'center' ? '50% 50%' : align === 'right' ? '100% 50%' : '0% 50%';

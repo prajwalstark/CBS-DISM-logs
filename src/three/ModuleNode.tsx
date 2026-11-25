@@ -161,7 +161,7 @@ export function ModuleNode({ id, health, analysis, position, selected, dimmed, s
         track={(v) => v.set(position.x, position.y + 1.6 + (group.current?.position.y ?? 0), position.z)}
         offset={[0, -6]}
         k={14}
-        className={`whitespace-nowrap rounded-lg border px-2.5 py-1 text-center backdrop-blur-md transition-[opacity,border-color] duration-200 ${selected || hovered ? 'border-accent/60 bg-void-2/90' : 'border-white/10 bg-void-2/70'} ${dimmed ? 'opacity-40' : ''}`}
+        className={`whitespace-nowrap rounded-lg border px-2.5 py-1 text-center transition-[opacity,border-color] duration-200 ${selected || hovered ? 'border-accent/60 bg-void-2/90' : 'border-white/10 bg-void-2/90'} ${dimmed ? 'opacity-40' : ''}`}
         lines={[
           { text: meta.label, className: 'font-display text-[13px] font-semibold text-ink' },
           { text: status === 'no-data' ? 'no data' : `${health!.score} · ${status}`, className: 'mono text-[11px]', color: c },
