@@ -4,13 +4,28 @@ An immersive, local-first analyser for Windows servicing logs (`CBS.log`, `dism.
 
 **Live site: https://prajwalstark.github.io/CBS-DISM-logs/**
 
-![Overview: 3D system core with subsystem health nodes, overall health score and top findings, using the labelled sample logs](docs/screenshot.jpg)
-
-![3D System Map: force-directed graph linking subsystems, findings, corrupt components and update packages, using the labelled sample logs](docs/screenshot-system-map.jpg)
-
-![Error Explorer: 3D correlation view linking CBS and DISM findings, with a selected finding's evidence, likely causes and repair commands, using the labelled sample logs](docs/screenshot-error-explorer.jpg)
-
-![Repair Center: 3D six-stage repair pipeline with evidence-derived stage status, the dependency-ordered repair plan and corrupt items, using the labelled sample logs](docs/screenshot-repair-center.jpg)
+<table>
+  <tr>
+    <td width="50%" align="center">
+      <a href="docs/screenshot.jpg"><img src="docs/screenshot.jpg" alt="Overview: 3D system core with subsystem health nodes, overall health score and top findings, using the labelled sample logs"></a><br>
+      <sub><b>Overview</b></sub>
+    </td>
+    <td width="50%" align="center">
+      <a href="docs/screenshot-system-map.jpg"><img src="docs/screenshot-system-map.jpg" alt="3D System Map: force-directed graph linking subsystems, findings, corrupt components and update packages, using the labelled sample logs"></a><br>
+      <sub><b>3D System Map</b></sub>
+    </td>
+  </tr>
+  <tr>
+    <td width="50%" align="center">
+      <a href="docs/screenshot-error-explorer.jpg"><img src="docs/screenshot-error-explorer.jpg" alt="Error Explorer: 3D correlation view linking CBS and DISM findings, with a selected finding's evidence, likely causes and repair commands, using the labelled sample logs"></a><br>
+      <sub><b>Error Explorer</b></sub>
+    </td>
+    <td width="50%" align="center">
+      <a href="docs/screenshot-repair-center.jpg"><img src="docs/screenshot-repair-center.jpg" alt="Repair Center: 3D six-stage repair pipeline with evidence-derived stage status, the dependency-ordered repair plan and corrupt items, using the labelled sample logs"></a><br>
+      <sub><b>Repair Center</b></sub>
+    </td>
+  </tr>
+</table>
 
 Logs are parsed **in your browser** inside a Web Worker. Nothing is uploaded.
 
