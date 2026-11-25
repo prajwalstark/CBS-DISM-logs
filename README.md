@@ -1,6 +1,9 @@
 # CBS & DISM Diagnostic Studio
 
 An immersive, local-first analyser for Windows servicing logs (`CBS.log`, `dism.log`).
+
+**Live site: https://prajwalstark.github.io/CBS-DISM-logs/**
+
 Logs are parsed **in your browser** inside a Web Worker. Nothing is uploaded.
 
 Every number, colour and 3D object in the interface comes from parsed log data. When no
@@ -22,7 +25,7 @@ npm run e2e          # headless Chromium end-to-end suite (needs a build first)
 
 ## Deployment
 
-Pushing to `main` runs `.github/workflows/deploy-pages.yml`: tests, a build with `VITE_BASE=/<repo>/`, and a deploy to GitHub Pages. In the repo's Settings → Pages, **Source** must be set to **GitHub Actions**.
+Pushing to `main` runs `.github/workflows/deploy-pages.yml`: tests, a build with `VITE_BASE=/<repo>/`, and a deploy to GitHub Pages. The live site is https://prajwalstark.github.io/CBS-DISM-logs/, and its sidebar footer (or Settings on mobile) shows the deployed commit. In the repo's Settings → Pages, **Source** must be set to **GitHub Actions**.
 
 ## Features
 
