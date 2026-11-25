@@ -35,7 +35,9 @@ export function Label3D({ position, track, lines, className = '', align = 'cente
   const linesKey = JSON.stringify(lines);
 
   useLayoutEffect(() => {
-    el.style.cssText = 'position:absolute;top:0;left:0;pointer-events:none;will-change:transform;z-index:5;';
+    // Hidden until the first frame positions it, so it never flashes at the top-left corner.
+    el.style.cssText = 'position:absolute;top:0;left:0;pointer-events:none;will-change:transform;z-index:5;display:none;';
+    last.current = 'hidden';
     const host = gl.domElement.parentElement;
     host?.appendChild(el);
     return () => { el.parentNode?.removeChild(el); };
@@ -57,6 +59,9 @@ export function Label3D({ position, track, lines, className = '', align = 'cente
     if (track) track(v);
     else if (Array.isArray(position)) v.set(position[0], position[1], position[2]);
     else if (position) v.copy(position);
+    // Controls move the camera before render, but matrixWorldInverse is only refreshed during
+    // render; update it now so labels use this frame's camera instead of lagging one frame behind.
+    camera.updateMatrixWorld();
     const dist = camera.position.distanceTo(v);
     v.project(camera);
     if (v.z > 1 || v.z < -1) { el.style.display = 'none'; last.current = 'hidden'; return; }

@@ -94,7 +94,6 @@ export function ModuleNode({ id, health, analysis, position, selected, dimmed, s
   const spin = useRef<THREE.Group>(null);
   const orbit = useRef<THREE.InstancedMesh>(null);
   const score = health && status !== 'no-data' ? health.score : 0;
-  const labelPos = useMemo(() => position.clone().add(new THREE.Vector3(0, 1.6, 0)), [position]);
 
   // Findings orbit the node: one satellite per finding (max 12), coloured by severity.
   const sats = useMemo(() => {
@@ -115,7 +114,7 @@ export function ModuleNode({ id, health, analysis, position, selected, dimmed, s
       const pulse = crit ? 1 + Math.sin(t * 4) * 0.04 : 1;
       const s = THREE.MathUtils.lerp(group.current.scale.x, target * pulse, 1 - Math.exp(-dt * 10));
       group.current.scale.setScalar(s);
-      group.current.position.y = position.y + Math.sin(t * 0.8 + position.x) * 0.1;
+      group.current.position.y = Math.sin(t * 0.8 + position.x) * 0.1;
     }
     const m = orbit.current;
     if (m && sats.length) {
@@ -159,7 +158,8 @@ export function ModuleNode({ id, health, analysis, position, selected, dimmed, s
       </group>
       <Label3D
         visible={showLabel}
-        position={labelPos}
+        track={(v) => v.set(position.x, position.y + 1.6 + (group.current?.position.y ?? 0), position.z)}
+        offset={[0, -6]}
         k={14}
         className={`whitespace-nowrap rounded-lg border px-2.5 py-1 text-center backdrop-blur-md transition-[opacity,border-color] duration-200 ${selected || hovered ? 'border-accent/60 bg-void-2/90' : 'border-white/10 bg-void-2/70'} ${dimmed ? 'opacity-40' : ''}`}
         lines={[

@@ -8,8 +8,10 @@ import { useApp, useQuality, useReducedMotion } from '@/store/app';
 export interface SceneProps { quality: Quality; reduced: boolean }
 
 /**
- * Drives rendering on demand: full rate while the user interacts or `active`
- * is true, ~20 fps when idle, nothing when offscreen/hidden or reduced motion.
+ * Drives rendering on demand: every display frame while the canvas is visible
+ * (a frame cap made motion stutter and fooled PerformanceMonitor into
+ * resizing the canvas), nothing when off-screen or the tab is hidden, and only
+ * on interaction under reduced motion.
  */
 function FrameDriver({ visible, reduced, activeRef }: { visible: boolean; reduced: boolean; activeRef: React.MutableRefObject<number> }) {
   const invalidate = useThree((s) => s.invalidate);
@@ -33,12 +35,9 @@ function FrameDriver({ visible, reduced, activeRef }: { visible: boolean; reduce
     invalidate();
     if (reduced) return;
     let raf = 0;
-    let last = 0;
-    const loop = (t: number) => {
+    const loop = () => {
       raf = requestAnimationFrame(loop);
-      if (document.hidden) return;
-      const idle = t - activeRef.current > 6000;
-      if (!idle || t - last > 48) { last = t; invalidate(); }
+      if (!document.hidden) invalidate();
     };
     raf = requestAnimationFrame(loop);
     return () => cancelAnimationFrame(raf);
@@ -100,7 +99,8 @@ export function Canvas3D({ children, fallback, camera = { position: [0, 4, 14], 
             gl.domElement.addEventListener('webglcontextlost', (e) => { e.preventDefault(); setLost(true); }, { once: true });
           }}
         >
-          <PerformanceMonitor onDecline={() => setDpr((d) => Math.max(1, d - 0.25))} onIncline={() => setDpr((d) => Math.min(quality === 'high' ? 2 : 1.5, d + 0.25))} />
+          {/* Only ever step resolution down, and settle at 1x if it keeps flip-flopping, so the canvas never oscillates in size. */}
+          <PerformanceMonitor flipflops={2} onDecline={() => setDpr((d) => Math.max(1, d - 0.25))} onFallback={() => setDpr(1)} />
           <FrameDriver visible={visible} reduced={reduced} activeRef={activeRef} />
           {children({ quality, reduced })}
         </Canvas>
