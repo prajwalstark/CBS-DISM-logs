@@ -8,6 +8,8 @@ An immersive, local-first analyser for Windows servicing logs (`CBS.log`, `dism.
 
 ![3D System Map: force-directed graph linking subsystems, findings, corrupt components and update packages, using the labelled sample logs](docs/screenshot-system-map.jpg)
 
+![Error Explorer: 3D correlation view linking CBS and DISM findings, with a selected finding's evidence, likely causes and repair commands, using the labelled sample logs](docs/screenshot-error-explorer.jpg)
+
 Logs are parsed **in your browser** inside a Web Worker. Nothing is uploaded.
 
 Every number, colour and 3D object in the interface comes from parsed log data. When no
